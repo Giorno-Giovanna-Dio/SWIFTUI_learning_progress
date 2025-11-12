@@ -51,3 +51,59 @@ struct ContentView: View {
     }
 }
 ```
+### Binding state to user interface controls
+- 為了可以顯示和修改一個變數的值這邊會使用 `two-way bindings`
+- 要採取 two-way bindings 的變數前面要加個 `$`
+- 如果是單純列印目前的變數值就不用 `$`
+```Swift
+import SwiftUI
+
+struct ContentView: View {
+    @State private var name = ""
+
+    var body: some View {
+        Form {
+            TextField("Enter your name", text: $name)
+            Text("Hello, world!")
+            Text("Your name is \(name)")
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
+```
+## Views in a Loop
+For example, we might want to loop over an array of names and have each one be a text view, or loop over an array of menu items and have each one be shown as an image.
+
+**`ForEach`** will run a closure once for every item it loops over, passing in the current loop item. For example, if we looped from 0 to 100 it would pass in 0, then 1, then 2, and so on.
+```Swift
+import SwiftUI
+
+struct ContentView: View {
+    let students = ["Harry", "Hermione", "Ron"]
+    @State private var selectedStudent = "Harry"
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Picker("Select your student", selection: $selectedStudent) {
+                    ForEach(students, id: \.self) {
+                        Text($0)
+                    }
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
+```
+- 如果初始的 `selectedStudent` 給定的值不存在於陣列中，就不會顯示
+- 因為需要讀和覆寫 `selectedStudent` 的值，所以前面需要 `$` 搭配 `@State`
+- ForEach  中的 id 是綁定項目在 array 中的順序，改變id 會連帶影響項目在選單中呈現的順序
+- ForEach 當中的 \.self  則是強調每個 string 的獨特性
+---
