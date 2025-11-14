@@ -107,3 +107,6 @@ struct ContentView: View {
 - ForEach  中的 id 是綁定項目在 array 中的順序，改變id 會連帶影響項目在選單中呈現的順序
 - ForEach 當中的 \.self  則是強調每個 string 的獨特性
 ---
+# Day 2-3 (11/13-11/14)
+## WeSplit App Accomplished
+[WeSplit Project Repository](https://github.com/Giorno-Giovanna-Dio/SWIFTUI_WeSplit)
