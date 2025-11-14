@@ -110,5 +110,5 @@ struct ContentView: View {
 # Day 2-3 (11/13-11/14)
 ## WeSplit App Accomplished
 [WeSplit Project Repository](https://github.com/Giorno-Giovanna-Dio/SWIFTUI_WeSplit)
-### Demo Video Below
+### Demo Video Below:
 [![Demo Video](https://img.youtube.com/vi/7df22bI3hK8/0.jpg)](https://youtu.be/7df22bI3hK8)
